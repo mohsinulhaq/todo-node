@@ -3,12 +3,11 @@ const mongoose = require('mongoose');
 const redis = require("redis");
 const bodyParser = require('body-parser');
 
-const app = express();
-
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 mongoose.Promise = global.Promise;
-const client = redis.createClient(process.env.REDIS_URL);
 
+const app = express();
+const rds = redis.createClient(process.env.REDIS_URL);
 const db = mongoose.model('todo', mongoose.Schema({todo: String, done: Boolean}));
 
 app.use(express.static(__dirname + '/public'));
