@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/mohsinulhaq', { useMongoClient: true });
+mongoose.connect('mongodb://heroku_zr27xsnt:l30gl7e45b2erjhbg0o904392j@ds163613.mlab.com:63613/heroku_zr27xsnt', { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 const db = mongoose.model('todo', mongoose.Schema({ todo: String, done: Boolean }));
