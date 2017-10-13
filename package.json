@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": { },
+  "scripts": {},
   "keywords": [
     "express"
   ],
   "author": "mohsinulhaq",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.18.2",
     "express": "~4.16.2",
     "mongoose": "~4.12.1",
-    "body-parser": "~1.18.2"
+    "redis": "^2.8.0"
   }
 }
