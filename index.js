@@ -66,4 +66,4 @@ app.delete('/api/:todo_id', (req, res) => {
     });
 });
 
-app.listen((process.env.PORT || 5000));
+app.listen(process.env.PORT);
