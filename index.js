@@ -1,6 +1,7 @@
 const express = require('express');
+const compression = require('compression');
 const mongoose = require('mongoose');
-const redis = require("redis");
+const redis = require('redis');
 const bodyParser = require('body-parser');
 
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
@@ -11,6 +12,7 @@ const rds = redis.createClient(process.env.REDIS_URL);
 const db = mongoose.model('todo', mongoose.Schema({todo: String, done: Boolean}));
 
 app.use(express.static(__dirname + '/public'));
+app.use(compression());
 app.use(bodyParser.json());
 
 app.get('/api', (req, res) => {

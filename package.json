@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "~1.18.2",
+    "compression": "^1.7.1",
     "express": "~4.16.2",
     "mongoose": "~4.12.1",
     "redis": "^2.8.0"
