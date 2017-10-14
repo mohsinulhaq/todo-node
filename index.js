@@ -14,10 +14,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 app.get('/api', (req, res) => {
-    db.find((err, todos) => {
-        if (err) res.send(err);
-
-        res.json(todos);
+    rds.get('todos', (err, todos) => {
+        res.json(JSON.parse(todos));
     });
 });
 
@@ -31,6 +29,7 @@ app.post('/api', (req, res) => {
         db.find((err, todos) => {
             if (err) res.send(err);
 
+            rds.set('todos', JSON.stringify(todos));
             res.json(todos);
         });
     });
@@ -47,6 +46,7 @@ app.put('/api/:todo_id', (req, res) => {
         db.find((err, todos) => {
             if (err) res.send(err);
 
+            rds.set('todos', JSON.stringify(todos));
             res.json(todos);
         });
     });
@@ -61,6 +61,7 @@ app.delete('/api/:todo_id', (req, res) => {
         db.find((err, todos) => {
             if (err) res.send(err);
 
+            rds.set('todos', JSON.stringify(todos));
             res.json(todos);
         });
     });
